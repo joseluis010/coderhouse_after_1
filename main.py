@@ -1,10 +1,17 @@
 from banco.cuenta_bancaria import CuentaBancaria  #importando el módulo
+from banco.menu import menu_cuenta_bancaria
 
-cuenta_1 = CuentaBancaria(1000)
-cuenta_1.depositar(2000)
+opcion = menu_cuenta_bancaria()
 
-cuenta_1.consultar_saldo()
+cuenta = CuentaBancaria(0)
 
-
-cuenta_2 = CuentaBancaria(0)
-cuenta_2.consultar_saldo()
+if opcion == 1:
+    monto = float(input("Monto a depositar: "))
+    cuenta.depositar(monto)    
+elif opcion == 2:
+    monto = float(input("Monto a retirar: "))
+    cuenta.retirar(monto) 
+elif opcion == 3:
+    cuenta.consultar_saldo()
+else:
+    print("Saliendo...")
